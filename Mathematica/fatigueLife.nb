@@ -1,0 +1,178 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5539,        168]
+NotebookOptionsPosition[      4797,        148]
+NotebookOutlinePosition[      5275,        165]
+CellTagsIndexPosition[      5232,        162]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Christopher\[CloseCurlyQuote]s Fatigue Life Calculator", "Text",
+ CellChangeTimes->{{3.906070223459764*^9, 3.906070231617201*^9}, {
+  3.90607118478836*^9, 
+  3.906071186458695*^9}},ExpressionUUID->"52f5c79d-c0b9-4e39-ad30-\
+814d853bb0be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sigmaa", " ", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"5.87", ",", "\"\<MPa\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sigmam", " ", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"-", "0.142"}], ",", "\"\<MPa\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"taua", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"0.99", ",", "\"\<MPa\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"taum", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"9.55", ",", "\"\<MPa\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Kf", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Kfs", "=", "2.8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Sy", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"295", ",", "\"\<MPa\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Su", "=", "395"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"e", "=", "1.58"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f", "=", 
+   RowBox[{"-", "0.085"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kf", "=", 
+   RowBox[{"e", "*", 
+    RowBox[{
+     RowBox[{"(", "Su", ")"}], "^", "f"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Su", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"Su", ",", "\"\<MPa\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kr", "=", "0.82"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d", "=", "80"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ks", "=", 
+   RowBox[{"1.189", "*", 
+    RowBox[{"d", "^", 
+     RowBox[{"(", 
+      RowBox[{"-", "0.112"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"se", "'"}], "=", 
+   RowBox[{"0.5", "*", "Su"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"km", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kt", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"Kf", "*", "sigmaa"}], ")"}], "^", "2"}], "+", 
+         RowBox[{"3", "*", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Kfs", "*", "taua"}], ")"}], "^", "2"}]}]}], ")"}], "^", 
+       RowBox[{"(", 
+        RowBox[{"1", "/", "2"}], ")"}]}], "/", 
+      RowBox[{"(", 
+       RowBox[{"kf", "*", "ks", "*", "kr", "*", "kt", "*", "km", "*", 
+        RowBox[{"se", "'"}]}], ")"}]}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"sigmam", "^", "2"}], " ", "+", " ", 
+         RowBox[{"3", "*", 
+          RowBox[{"(", 
+           RowBox[{"taum", "^", "2"}], ")"}]}]}], ")"}], "^", 
+       RowBox[{"(", 
+        RowBox[{"1", "/", "2"}], ")"}]}], "/", 
+      RowBox[{"(", "Su", ")"}]}]}], "==", 
+    RowBox[{"1", "/", "n"}]}], ",", "n"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.906070259686582*^9, 3.906070702311214*^9}, {
+  3.906070756050942*^9, 3.90607086904361*^9}, {3.9060711755355587`*^9, 
+  3.906071182473447*^9}, {3.9060712139463997`*^9, 3.906071233049776*^9}},
+ CellLabel->
+  "In[370]:=",ExpressionUUID->"95855685-007f-4e55-8fb2-f8ba6823a250"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"n", "\[Rule]", "4.882942238177165`"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.906070458214198*^9, 3.906070478026719*^9}, 
+   3.906070518590715*^9, 3.906070605573476*^9, {3.906070686983355*^9, 
+   3.9060707032435904`*^9}, 3.9060708357895737`*^9, 3.906070874187796*^9, 
+   3.906071151652179*^9, 3.906071234504641*^9},
+ CellLabel->
+  "Out[388]=",ExpressionUUID->"aeea460d-a083-45e3-80ca-43a12b449f9c"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.906070264042576*^9, 
+  3.906070264050261*^9}},ExpressionUUID->"5e0ecbf4-c028-4c73-b731-\
+c4cece6e226c"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"13.0 for Mac OS X x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "ProgrammingLabDefault.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"330f4519-d16b-46bd-b9de-faf6a04ded6b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 244, 4, 36, "Text",ExpressionUUID->"52f5c79d-c0b9-4e39-ad30-814d853bb0be"],
+Cell[CellGroupData[{
+Cell[827, 28, 3333, 101, 432, "Input",ExpressionUUID->"95855685-007f-4e55-8fb2-f8ba6823a250"],
+Cell[4163, 131, 463, 9, 36, "Output",ExpressionUUID->"aeea460d-a083-45e3-80ca-43a12b449f9c"]
+}, Open  ]],
+Cell[4641, 143, 152, 3, 32, "Input",ExpressionUUID->"5e0ecbf4-c028-4c73-b731-c4cece6e226c"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
